@@ -1,0 +1,35 @@
+FROM php:8.3-fpm-alpine
+
+# Variables de build para usuario local
+ARG UID=1000
+ARG GID=1000
+
+# Establecer el directorio de trabajo
+WORKDIR /var/www
+
+# Instalar dependencias necesarias (añade libxml2-dev para SOAP)
+RUN apk add --no-cache \
+    mysql-client msmtp perl wget procps shadow libzip libpng libjpeg-turbo libwebp \
+    freetype icu postgresql-dev libxml2 && \
+    apk add --no-cache --virtual build-deps \
+    icu-dev icu-libs zlib-dev g++ make automake autoconf libzip-dev \
+    libpng-dev libwebp-dev libjpeg-turbo-dev freetype-dev libxml2-dev && \
+    docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp && \
+    docker-php-ext-install gd mysqli pdo_mysql intl bcmath opcache exif zip pdo_pgsql soap && \
+    apk del build-deps && rm -rf /usr/src/php*
+
+# Crear grupo y usuario con el mismo UID/GID que tu usuario local
+RUN addgroup -g $GID laravel \
+    && adduser -D -u $UID -G laravel laravel
+
+# Instalar Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Instalar Laravel Installer globalmente
+RUN composer global require laravel/installer
+
+# Añadir composer/vendor/bin al PATH
+ENV PATH="${PATH}:/root/.composer/vendor/bin"
+
+# Cambiar a usuario laravel
+USER laravel
