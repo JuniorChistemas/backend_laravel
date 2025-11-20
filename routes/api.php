@@ -9,7 +9,10 @@ Route::get('/user', function (Request $request) {
 })->middleware('auth:sanctum');
 
 
-Route::post('/create-user', [UserController::class, 'create'])->name('create-user')->middleware('create-user');
+Route::post('/create-user', [UserController::class, 'create'])->name('create-user')->middleware([
+    'auth:sanctum',
+    'ability:create-user'
+]);
 
 
 Route::post('/login', [UserController::class, 'login'])->name('login');
