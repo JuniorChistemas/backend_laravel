@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,11 +12,19 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller
 {
     /**
-     * Handle user login and token generation.
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\JsonResponse
+     * 
+     * Inicio de sesión de usuario
+     * 
+     * @param  Request  $request
+     * @return JsonResponse
+     * 
+     * @throws ValidationException Si las credenciales no son válidas
+     * @group Usuario
+     * @unauthenticated
+     * @responseField message Mensaje de estado de la operación
+     * @responseField token Token de autenticación del usuario
      */
-    public function login(Request $request){
+    public function login(Request $request): JsonResponse{
         $email = $request->input('email');
         $password = $request->input('password');
         if(!Auth::attempt(['email' => $email, 'password' => $password])){
@@ -30,7 +39,14 @@ class UserController extends Controller
     }
 
 
-    public function create(Request $request){
+    /**
+     * Crear un nuevo usuario
+     * @param  Request  $request
+     * @return JsonResponse
+     * 
+     */
+
+    public function create(Request $request): JsonResponse{
         $name = $request->input('name');
         $email = $request->input('email');
         $password = Hash::make($request->input('password'));
@@ -42,6 +58,16 @@ class UserController extends Controller
         ]);
 
         return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
+    }
+
+
+    /**
+     * Obtener todos los usuarios
+     * @return JsonResponse
+     */
+    public function getUsers(): JsonResponse{
+        $users = User::all();
+        return response()->json(['users' => $users], 200);
     }
 
 }

@@ -12,7 +12,7 @@ return [
     'title' => config('app.name') . ' API Documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
-    'description' => '',
+    'description' => 'Welcome to the API documentation for ' . config('app.name') . '. Here you will find all the information you need to work with our API.',
 
     // Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
     'intro_text' => <<<INTRO
@@ -103,11 +103,11 @@ return [
     // How is your API authenticated? This information will be used in the displayed docs, generated examples and response calls.
     'auth' => [
         // Set this to true if ANY endpoints in your API use authentication.
-        'enabled' => false,
+        'enabled' => true,
 
         // Set this to true if your API should be authenticated by default. If so, you must also set `enabled` (above) to true.
         // You can then use @unauthenticated or @authenticated on individual endpoints to change their status from the default.
-        'default' => false,
+        'default' => true,
 
         // Where is the auth value meant to be sent in a request?
         'in' => AuthIn::BEARER->value,
@@ -141,7 +141,7 @@ return [
     // For 'laravel' docs, it will be generated to storage/app/scribe/collection.json.
     // Setting `laravel.add_routes` to true (above) will also add a route for the collection.
     'postman' => [
-        'enabled' => true,
+        'enabled' => false,
 
         'overrides' => [
             // 'info.version' => '2.0.0',
@@ -153,7 +153,7 @@ return [
     // For 'laravel' docs, it will be generated to storage/app/scribe/openapi.yaml.
     // Setting `laravel.add_routes` to true (above) will also add a route for the spec.
     'openapi' => [
-        'enabled' => true,
+        'enabled' => false,
 
         'overrides' => [
             // 'info.version' => '2.0.0',
