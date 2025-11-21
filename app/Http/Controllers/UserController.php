@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -15,16 +16,17 @@ class UserController extends Controller
      * 
      * Inicio de sesión de usuario
      * 
-     * @param  Request  $request
+     * @param  LoginRequest  $request
      * @return JsonResponse
+     * 
      * 
      * @throws ValidationException Si las credenciales no son válidas
      * @group Usuario
      * @unauthenticated
-     * @responseField message Mensaje de estado de la operación
+     *
      * @responseField token Token de autenticación del usuario
      */
-    public function login(Request $request): JsonResponse{
+    public function login(LoginRequest $request): JsonResponse{
         $email = $request->input('email');
         $password = $request->input('password');
         if(!Auth::attempt(['email' => $email, 'password' => $password])){
@@ -38,18 +40,40 @@ class UserController extends Controller
         ], 200);
     }
 
-
     /**
-     * Crear un nuevo usuario
+     * Obtener información del usuario autenticado
      * @param  Request  $request
      * @return JsonResponse
      * 
+     * @group Usuario
+     * @authenticated
+     * 
+     * @responseField user Información del usuario autenticado
      */
 
-    public function create(Request $request): JsonResponse{
+
+    public function getUserOnly(Request $request): JsonResponse{
+        $user = $request->user();
+        return response()->json(['user' => $user], 200);
+    }
+
+
+    /**
+     * Crear un nuevo usuario
+     * @param  UserRequest  $request
+     * @return JsonResponse
+     * 
+     * @group Usuario
+     * @authenticated
+     * 
+     * @responseField message Mensaje de estado de la operación
+     * 
+     */
+
+    public function create(UserRequest $request): JsonResponse{
         $name = $request->input('name');
         $email = $request->input('email');
-        $password = Hash::make($request->input('password'));
+        $password = bcrypt($request->input('password'));
 
         $user = User::create([
             'name' => $name,
@@ -64,6 +88,9 @@ class UserController extends Controller
     /**
      * Obtener todos los usuarios
      * @return JsonResponse
+     * 
+     * @group Usuario
+     * @authenticated
      */
     public function getUsers(): JsonResponse{
         $users = User::all();

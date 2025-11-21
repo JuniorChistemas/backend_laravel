@@ -12,7 +12,7 @@ return [
     'title' => config('app.name') . ' API Documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
-    'description' => 'Welcome to the API documentation for ' . config('app.name') . '. Here you will find all the information you need to work with our API.',
+    'description' => 'Bienvenido a la documentación de la API de ' . config('app.name') . '. Aquí encontrarás toda la información necesaria para interactuar con nuestra API BASICA .',
 
     // Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
     'intro_text' => <<<INTRO
@@ -134,6 +134,7 @@ return [
     'example_languages' => [
         'bash',
         'javascript',
+        'php'
     ],
 
     // Generate a Postman collection (v2.1.0) in addition to HTML docs.
