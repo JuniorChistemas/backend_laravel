@@ -33,7 +33,7 @@ class UserController extends Controller
             return response()->json(['message' => 'Invalid credentials'], 401);
         }
         $user = Auth::user();
-        $token = $user->createToken('api',['create-user','update-user','delete-user','view-user'], Carbon::now()->addHours(2))->plainTextToken;
+        $token = $user->createToken('api',['create-user','update-user','delete-user','view-user'], Carbon::now()->addHours(1))->plainTextToken;
         return response()->json([
             'message' => 'Login successful',
             'token' => $token
@@ -41,7 +41,7 @@ class UserController extends Controller
     }
 
     /**
-     * Obtener información del usuario autenticado
+     * Obtener Usuario autenticado
      * @param  Request  $request
      * @return JsonResponse
      * 

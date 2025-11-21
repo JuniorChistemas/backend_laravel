@@ -11,7 +11,7 @@ Route::post('/login', [UserController::class, 'login'])->name('login')->middlewa
 // rutas protegidas por sanctum
 Route::prefix('/user')->middleware('auth:sanctum', 'throttle:api')->group(function () {
     // Obtener información del usuario autenticado
-    Route::get('/user', [UserController::class, 'getUserOnly']);
+    Route::get('/get-user', [UserController::class, 'getUserOnly']);
     // Obtener todos los usuarios
     Route::get('/users/all', [UserController::class, 'getUsers'])->name('get-users');
     // Crear un nuevo usuario
