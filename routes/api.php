@@ -16,4 +16,6 @@ Route::prefix('/user')->middleware('auth:sanctum', 'throttle:api')->group(functi
     Route::get('/users/all', [UserController::class, 'getUsers'])->name('get-users');
     // Crear un nuevo usuario
     Route::post('/create-user', [UserController::class, 'create'])->name('create-user')->middleware('ability:create-user');
+    // Cerrar sesión de usuario
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });

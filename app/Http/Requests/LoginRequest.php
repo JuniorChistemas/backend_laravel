@@ -33,11 +33,9 @@ class LoginRequest extends FormRequest
         return [
             'email' => [
                 'description' => 'Correo electrónico del usuario',
-                'example' => 'usuario@gmail.com',
             ],
             'password' => [
                 'description' => 'Contraseña del usuario',
-                'example' => 'password123',
             ],
         ];
     }

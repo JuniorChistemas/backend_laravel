@@ -32,15 +32,12 @@ class UserRequest extends FormRequest
         return [
             'name' => [
                 'description' => 'Nombre completo del usuario',
-                'example' => 'Juan Pérez',
             ],
             'email' => [
                 'description' => 'Correo electrónico del usuario',
-                'example' => 'usuario@gmail.com',
             ],
             'password' => [
                 'description' => 'Contraseña del usuario',
-                'example' => 'password123',
             ],
         ];
     }

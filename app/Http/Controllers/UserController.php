@@ -93,8 +93,25 @@ class UserController extends Controller
      * @authenticated
      */
     public function getUsers(): JsonResponse{
-        $users = User::all();
+        $users = User::paginate(10);
         return response()->json(['users' => $users], 200);
     }
 
+    /**
+     * Cerrar sesión de usuario
+     * 
+     * @param  Request  $request
+     * 
+     * @responseField message Mensaje de estado de la operación
+     * 
+     * @group Usuario
+     * @authenticated
+     * 
+     * @return JsonResponse
+     */
+    public function logout(Request $request): JsonResponse{
+        $user = $request->user();
+        $user->tokens()->delete();
+        return response()->json(['message' => 'Logout successful'], 200);
+    }
 }
