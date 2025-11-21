@@ -5,11 +5,11 @@ use Illuminate\Support\Facades\Route;
 
 
 // Inicio de sesión de usuario
-Route::post('/login', [UserController::class, 'login'])->name('login');
+Route::post('/login', [UserController::class, 'login'])->name('login')->middleware('throttle:api');
 
 
 // rutas protegidas por sanctum
-Route::prefix('/user')->middleware('auth:sanctum')->group(function () {
+Route::prefix('/user')->middleware('auth:sanctum', 'throttle:api')->group(function () {
     // Obtener información del usuario autenticado
     Route::get('/user', [UserController::class, 'getUserOnly']);
     // Obtener todos los usuarios
