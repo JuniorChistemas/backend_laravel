@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,8 @@ Route::prefix('/user')->middleware('auth:sanctum', 'throttle:api')->group(functi
     // Cerrar sesión de usuario
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 });
+
+
+Route::resource('/customers', CustomerController::class)->except(['create', 'edit'])->middleware('throttle:api');
+
+
