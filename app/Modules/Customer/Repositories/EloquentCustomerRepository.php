@@ -10,7 +10,8 @@ use App\Modules\Customer\Dtos\CustomerUpdateDTO;
 class EloquentCustomerRepository implements CustomerRepositoryInterface{
   public function getAll(): array
   {
-    return Customer::query()->orderBy('id', 'DESC')->get()->all();
+    // limit 30
+    return Customer::query()->orderBy('id', 'DESC')->limit(30)->get()->all();
   }
   public function find(int $id)
   {

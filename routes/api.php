@@ -22,6 +22,6 @@ Route::prefix('/user')->middleware('auth:sanctum', 'throttle:api')->group(functi
 });
 
 
-Route::resource('/customers', CustomerController::class)->except(['create', 'edit'])->middleware('throttle:api');
+Route::resource('/customers', CustomerController::class)->except(['create', 'edit'])->middleware('auth:sanctum', 'throttle:api');
 
 

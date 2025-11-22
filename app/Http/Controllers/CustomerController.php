@@ -12,7 +12,14 @@ class CustomerController extends Controller
 
 
     /**
-     * Display a listing of the resource.
+     * Obtener todos los clientes
+     * 
+     * @return JsonResponse
+     * 
+     * @group Cliente
+     * @authenticated
+     * 
+     * @responseField data Lista de clientes
      */
     public function index()
     {
@@ -20,7 +27,15 @@ class CustomerController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Crear un nuevo cliente
+     * 
+     * @param  StoreCustomerRequest  $request
+     * @return JsonResponse
+     * 
+     * @group Cliente
+     * @authenticated
+     * 
+     * @responseField data Información del cliente creado
      */
     public function store(StoreCustomerRequest $request)
     {
@@ -28,7 +43,17 @@ class CustomerController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Obtener un cliente específico
+     * 
+     * @param  string  $id
+     * @return JsonResponse
+     * 
+     * @group Cliente
+     * @authenticated
+     * 
+     * @urlParam id integer required ID del cliente. Example: 1
+     * 
+     * @responseField data Información del cliente
      */
     public function show(string $id)
     {
@@ -36,7 +61,18 @@ class CustomerController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualizar un cliente existente
+     * 
+     * @param  UpdateCustomerRequest  $request
+     * @param  int  $id
+     * @return JsonResponse
+     * 
+     * @group Cliente
+     * @authenticated
+     * 
+     * @urlParam id integer required ID del cliente a actualizar. Example: 1
+     * 
+     * @responseField data Información del cliente actualizado
      */
     public function update(UpdateCustomerRequest $request, int $id)
     {
@@ -44,7 +80,17 @@ class CustomerController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Eliminar un cliente
+     * 
+     * @param  string  $id
+     * @return JsonResponse
+     * 
+     * @group Cliente
+     * @authenticated
+     * 
+     * @urlParam id integer required ID del cliente a eliminar. Example: 1
+     * 
+     * @responseField deleted Estado de la operación de eliminación
      */
     public function destroy(string $id)
     {

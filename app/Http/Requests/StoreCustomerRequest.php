@@ -34,6 +34,36 @@ class StoreCustomerRequest extends FormRequest
 
 
 
+    public function bodyParameters(): array
+    {
+        return [
+            'first_name' => [
+                'description' => 'Nombre del cliente',
+                'example' => 'Juan',
+            ],
+            'last_name' => [
+                'description' => 'Apellido del cliente',
+                'example' => 'Pérez',
+            ],
+            'email' => [
+                'description' => 'Correo electrónico del cliente',
+                'example' => 'juan.perez@example.com',
+            ],
+            'phone' => [
+                'description' => 'Teléfono del cliente (9 caracteres)',
+                'example' => '987654321',
+            ],
+            'description' => [
+                'description' => 'Descripción adicional del cliente',
+                'example' => 'Cliente VIP',
+            ],
+            'status' => [
+                'description' => 'Estado del cliente',
+                'example' => true,
+            ],
+        ];
+    }
+
     public function toDto(): CustomerCreateDTO{
         return new CustomerCreateDTO(
             first_name: $this->input('first_name'),

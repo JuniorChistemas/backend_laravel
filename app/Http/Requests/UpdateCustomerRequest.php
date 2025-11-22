@@ -33,6 +33,36 @@ class UpdateCustomerRequest extends FormRequest
     }
 
 
+    public function bodyParameters(): array
+    {
+        return [
+            'first_name' => [
+                'description' => 'Nombre del cliente',
+                'example' => 'Juan',
+            ],
+            'last_name' => [
+                'description' => 'Apellido del cliente',
+                'example' => 'Pérez',
+            ],
+            'email' => [
+                'description' => 'Correo electrónico del cliente',
+                'example' => 'juan.perez@example.com',
+            ],
+            'phone' => [
+                'description' => 'Teléfono del cliente (9 caracteres)',
+                'example' => '987654321',
+            ],
+            'description' => [
+                'description' => 'Descripción adicional del cliente',
+                'example' => 'Cliente VIP actualizado',
+            ],
+            'status' => [
+                'description' => 'Estado del cliente',
+                'example' => false,
+            ],
+        ];
+    }
+
     public function toDto(): CustomerUpdateDTO{
         return new CustomerUpdateDTO(
             first_name: $this->input('first_name'),
