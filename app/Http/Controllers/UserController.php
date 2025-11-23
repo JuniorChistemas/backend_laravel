@@ -35,7 +35,7 @@ class UserController extends Controller
         $user = Auth::user();
         $token = $user->createToken('api',['create-user','update-user','delete-user','view-user'], Carbon::now()->addHours(1))->plainTextToken;
         return response()->json([
-            'message' => 'Login successful',
+            'message' => 'Inicio de sesión exitoso',
             'token' => $token
         ], 200);
     }
@@ -64,7 +64,7 @@ class UserController extends Controller
      * @return JsonResponse
      * 
      * @group Usuario
-     * @authenticated
+     * @unauthenticated
      * 
      * @responseField message Mensaje de estado de la operación
      * 
@@ -81,7 +81,7 @@ class UserController extends Controller
             'password' => $password,
         ]);
 
-        return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
+        return response()->json(['message' => 'Usuario creado exitosamente', 'user' => $user], 201);
     }
 
 
@@ -112,6 +112,6 @@ class UserController extends Controller
     public function logout(Request $request): JsonResponse{
         $user = $request->user();
         $user->tokens()->delete();
-        return response()->json(['message' => 'Logout successful'], 200);
+        return response()->json(['message' => 'Cierre de sesión exitoso, hasta luego'], 200);
     }
 }

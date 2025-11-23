@@ -1,7 +1,7 @@
 # Authenticating requests
 
-To authenticate requests, include an **`Authorization`** header with the value **`"Bearer {YOUR_AUTH_KEY}"`**.
+To authenticate requests, include an **`Authorization`** header with the value **`"Bearer {YOUR_TOKEN}"`**.
 
 All authenticated endpoints are marked with a `requires authentication` badge in the documentation below.
 
-You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.
+Puedes obtener tu token de autenticación realizando login en <code>POST /api/login</code>. El token tiene una validez de <b>1 hora</b> y otorga permisos para crear, actualizar, eliminar y visualizar usuarios y clientes.

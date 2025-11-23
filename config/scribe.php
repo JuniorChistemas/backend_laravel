@@ -12,14 +12,35 @@ return [
     'title' => config('app.name') . ' API Documentation',
 
     // A short description of your API. Will be included in the docs webpage, Postman collection and OpenAPI spec.
-    'description' => 'Bienvenido a la documentación de la API de ' . config('app.name') . '. Aquí encontrarás toda la información necesaria para interactuar con nuestra API BASICA .',
+    'description' => 'API RESTful para gestión de usuarios y clientes. Incluye autenticación mediante tokens Bearer (Laravel Sanctum) y operaciones CRUD completas.',
 
     // Text to place in the "Introduction" section, right after the `description`. Markdown and HTML are supported.
     'intro_text' => <<<INTRO
-        This documentation aims to provide all the information you need to work with our API.
+        ## Autenticación
 
-        <aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
-        You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+        Esta API utiliza **Bearer Token** para autenticación. Para obtener tu token:
+
+        1. Realiza una petición POST a `/api/login` con tus credenciales (email y password)
+        2. Recibirás un token de acceso válido por 1 hora
+        3. Incluye el token en el header `Authorization: Bearer {token}` en tus peticiones
+
+        ## Formato de respuesta
+
+        Todas las respuestas están en formato JSON. Las respuestas exitosas incluyen los datos solicitados, mientras que los errores incluyen un mensaje descriptivo.
+
+        ## Rate Limiting
+
+        La API está protegida contra abuso. Se aplican límites de tasa estándar de Laravel.
+
+        ## Códigos de estado
+
+        - `200 OK` - Solicitud exitosa
+        - `201 Created` - Recurso creado exitosamente
+        - `401 Unauthorized` - Token inválido o ausente
+        - `403 Forbidden` - Sin permisos suficientes
+        - `404 Not Found` - Recurso no encontrado
+        - `422 Unprocessable Entity` - Error de validación
+        - `500 Internal Server Error` - Error del servidor
     INTRO,
 
     // The base URL displayed in the docs.
@@ -113,7 +134,7 @@ return [
         'in' => AuthIn::BEARER->value,
 
         // The name of the auth parameter (e.g. token, key, apiKey) or header (e.g. Authorization, Api-Key).
-        'name' => 'key',
+        'name' => 'Authorization',
 
         // The value of the parameter to be used by Scribe to authenticate response calls.
         // This will NOT be included in the generated documentation. If empty, Scribe will use a random value.
@@ -121,10 +142,10 @@ return [
 
         // Placeholder your users will see for the auth parameter in the example requests.
         // Set this to null if you want Scribe to use a random value as placeholder instead.
-        'placeholder' => '{YOUR_AUTH_KEY}',
+        'placeholder' => '{YOUR_TOKEN}',
 
         // Any extra authentication-related info for your users. Markdown and HTML are supported.
-        'extra_info' => 'You can retrieve your token by visiting your dashboard and clicking <b>Generate API token</b>.',
+        'extra_info' => 'Puedes obtener tu token de autenticación realizando login en <code>POST /api/login</code>. El token tiene una validez de <b>1 hora</b> y otorga permisos para crear, actualizar, eliminar y visualizar usuarios y clientes.',
     ],
 
     // Example requests for each endpoint will be shown in each of these languages.
@@ -134,7 +155,8 @@ return [
     'example_languages' => [
         'bash',
         'javascript',
-        'php'
+        'php',
+        'python'
     ],
 
     // Generate a Postman collection (v2.1.0) in addition to HTML docs.
@@ -173,7 +195,14 @@ return [
         // You can override this by listing the groups, subgroups and endpoints here in the order you want them.
         // See https://scribe.knuckles.wtf/blog/laravel-v4#easier-sorting and https://scribe.knuckles.wtf/laravel/reference/config#order for details
         // Note: does not work for `external` docs types
-        'order' => [],
+        'order' => [
+            'Usuario' => [
+                'POST /api/create-user',
+                'POST /api/login',
+            ],
+            'Cliente',
+            '*'
+        ],
     ],
 
     // Custom logo path. This will be used as the value of the src attribute for the <img> tag,

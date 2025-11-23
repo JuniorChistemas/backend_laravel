@@ -15,22 +15,22 @@
 
 API RESTful desarrollada con **Laravel 12** implementando una **arquitectura modular limpia** con patrones de diseño avanzados. El proyecto utiliza **Laravel Sanctum** para autenticación basada en tokens y demuestra las mejores prácticas en desarrollo backend moderno.
 
-## ✨ Características Principales
+## Características Principales
 
--   🔐 **Autenticación con Laravel Sanctum** - Tokens de acceso personal seguros
--   🏗️ **Arquitectura Modular** - Separación clara de responsabilidades
--   📦 **Patrón Repository** - Abstracción de la capa de datos
--   🎯 **Service Layer** - Lógica de negocio desacoplada
--   🔄 **DTOs (Data Transfer Objects)** - Transferencia de datos tipada
--   🔌 **Dependency Injection** - Inversión de control mediante contratos
--   📝 **Form Request Validation** - Validación centralizada
--   🎨 **API Resources** - Transformación consistente de respuestas
--   🐳 **Docker Ready** - Configuración para contenedores
--   📚 **Documentación API** - Generada con Scribe
+-   **Autenticación con Laravel Sanctum** - Tokens de acceso personal seguros
+-   **Arquitectura Modular** - Separación clara de responsabilidades
+-   **Patrón Repository** - Abstracción de la capa de datos
+-   **Service Layer** - Lógica de negocio desacoplada
+-   **DTOs (Data Transfer Objects)** - Transferencia de datos tipada
+-   **Dependency Injection** - Inversión de control mediante contratos
+-   **Form Request Validation** - Validación centralizada
+-   **API Resources** - Transformación consistente de respuestas
+-   **Docker Ready** - Configuración para contenedores
+-   **Documentación API** - Generada con Scribe
 
 ---
 
-## 🔐 Autenticación con Laravel Sanctum
+## Autenticación con Laravel Sanctum
 
 ### Características de Seguridad
 
@@ -343,85 +343,6 @@ php artisan test --coverage
 php artisan test --filter CustomerTest
 ```
 
----
-
-## 📚 API Endpoints - CRUD Customers
-
-### Listar Customers
-
-```http
-GET /api/customers
-Authorization: Bearer {token}
-```
-
-### Obtener Customer
-
-```http
-GET /api/customers/{id}
-Authorization: Bearer {token}
-```
-
-### Crear Customer
-
-```http
-POST /api/customers
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "name": "Jane Smith",
-  "email": "jane@example.com",
-  "phone": "+1234567890",
-  "address": "123 Main St"
-}
-```
-
-### Actualizar Customer
-
-```http
-PUT /api/customers/{id}
-Authorization: Bearer {token}
-Content-Type: application/json
-
-{
-  "name": "Jane Doe",
-  "email": "jane.doe@example.com",
-  "phone": "+0987654321"
-}
-```
-
-### Eliminar Customer
-
-```http
-DELETE /api/customers/{id}
-Authorization: Bearer {token}
-```
-
-### Documentación Completa
-
-Accede a la documentación interactiva generada con Scribe:
-
-```bash
-php artisan scribe:generate
-```
-
-Visita: `http://localhost:8000/docs`
-
----
-
-## 🛠️ Tecnologías Utilizadas
-
--   **Framework:** Laravel 12.x
--   **Autenticación:** Laravel Sanctum 4.x
--   **ORM:** Eloquent
--   **Validación:** Form Requests
--   **Testing:** PHPUnit
--   **Documentación:** Scribe
--   **Code Style:** Laravel Pint
--   **Containerización:** Docker
-
----
-
 ## 📖 Principios SOLID Aplicados
 
 -   ✅ **Single Responsibility:** Cada clase tiene una única responsabilidad
@@ -452,4 +373,4 @@ Si tienes alguna pregunta o problema, por favor abre un [issue](https://github.c
 
 ---
 
-<p align="center">Desarrollado con ❤️ usando Laravel</p>
+<p align="center">Desarrollado con ❤️ usando Laravel 12</p>

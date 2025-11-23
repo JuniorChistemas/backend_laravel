@@ -52,7 +52,7 @@ class CustomerController extends Controller
      * @authenticated
      * 
      * @urlParam id integer required ID del cliente. Example: 1
-     * 
+     * @response 404 {"message": "Cliente no encontrado"}
      * @responseField data Información del cliente
      */
     public function show(string $id)
