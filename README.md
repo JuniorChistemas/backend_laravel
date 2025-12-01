@@ -11,7 +11,7 @@
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License MIT">
 </p>
 
-## 📋 Descripción
+## Descripción
 
 API RESTful desarrollada con **Laravel 12** implementando una **arquitectura modular limpia** con patrones de diseño avanzados. El proyecto utiliza **Laravel Sanctum** para autenticación basada en tokens y demuestra las mejores prácticas en desarrollo backend moderno.
 
@@ -53,7 +53,7 @@ Authorization: Bearer 1|abcdef123456...
 
 ---
 
-## 🏗️ Arquitectura y Patrones de Diseño
+## Arquitectura y Patrones de Diseño
 
 ### Estructura Modular
 
@@ -269,7 +269,7 @@ class StoreCustomerRequest extends FormRequest {
 
 ---
 
-## 📦 Instalación
+## Instalación
 
 ### Requisitos
 
@@ -330,7 +330,7 @@ docker-compose logs -f
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ```bash
 # Ejecutar todos los tests
@@ -343,7 +343,7 @@ php artisan test --coverage
 php artisan test --filter CustomerTest
 ```
 
-## 📖 Principios SOLID Aplicados
+## Principios SOLID Aplicados
 
 -   ✅ **Single Responsibility:** Cada clase tiene una única responsabilidad
 -   ✅ **Open/Closed:** Abierto para extensión, cerrado para modificación
@@ -353,13 +353,13 @@ php artisan test --filter CustomerTest
 
 ---
 
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
-## 👤 Autor
+## Autor
 
 **Junior Chistemas**
 
@@ -367,7 +367,7 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para
 
 ---
 
-## 📞 Soporte
+## Soporte
 
 Si tienes alguna pregunta o problema, por favor abre un [issue](https://github.com/JuniorChistemas/backend_laravel/issues) en GitHub.
 
