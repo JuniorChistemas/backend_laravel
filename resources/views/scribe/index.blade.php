@@ -28,7 +28,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "https://api-backend.laravel.cloud/";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -121,7 +121,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: November 23, 2025</li>
+        <li>Last updated: December 9, 2025</li>
     </ul>
 </div>
 
@@ -131,7 +131,7 @@
         <h1 id="introduction">Introduction</h1>
 <p>API RESTful para gestión de usuarios y clientes. Incluye autenticación mediante tokens Bearer (Laravel Sanctum) y operaciones CRUD completas.</p>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>https://api-backend.laravel.cloud/</code>
 </aside>
 <pre><code>## Autenticación
 
@@ -181,7 +181,7 @@ La API está protegida contra abuso. Se aplican límites de tasa estándar de La
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/create-user" \
+    "https://api-backend.laravel.cloud/api/create-user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -194,7 +194,7 @@ La API está protegida contra abuso. Se aplican límites de tasa estándar de La
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/create-user"
+    "https://api-backend.laravel.cloud/api/create-user"
 );
 
 const headers = {
@@ -217,7 +217,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/create-user';
+$url = 'https://api-backend.laravel.cloud/api/create-user';
 $response = $client-&gt;post(
     $url,
     [
@@ -240,7 +240,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/create-user'
+url = 'https://api-backend.laravel.cloud/api/create-user'
 payload = {
     "name": "Juan Pérez",
     "email": "juan.perez@example.com",
@@ -391,7 +391,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/login" \
+    "https://api-backend.laravel.cloud/api/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -403,7 +403,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/login"
+    "https://api-backend.laravel.cloud/api/login"
 );
 
 const headers = {
@@ -425,7 +425,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/login';
+$url = 'https://api-backend.laravel.cloud/api/login';
 $response = $client-&gt;post(
     $url,
     [
@@ -447,7 +447,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/login'
+url = 'https://api-backend.laravel.cloud/api/login'
 payload = {
     "email": "gbailey@example.net",
     "password": "+-0pBNvYgxwmi\/#iw"
@@ -586,7 +586,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/user/get-user" \
+    --get "https://api-backend.laravel.cloud/api/user/get-user" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -594,7 +594,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user/get-user"
+    "https://api-backend.laravel.cloud/api/user/get-user"
 );
 
 const headers = {
@@ -611,7 +611,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/user/get-user';
+$url = 'https://api-backend.laravel.cloud/api/user/get-user';
 $response = $client-&gt;get(
     $url,
     [
@@ -630,7 +630,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/user/get-user'
+url = 'https://api-backend.laravel.cloud/api/user/get-user'
 headers = {
   'Authorization': 'Bearer {YOUR_TOKEN}',
   'Content-Type': 'application/json',
@@ -644,7 +644,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-user-get-user">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -656,7 +656,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;The route api/user/get-user could not be found.&quot;
 }</code>
  </pre>
     </span>
@@ -769,7 +769,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/user/users/all" \
+    --get "https://api-backend.laravel.cloud/api/user/users/all" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -777,7 +777,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user/users/all"
+    "https://api-backend.laravel.cloud/api/user/users/all"
 );
 
 const headers = {
@@ -794,7 +794,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/user/users/all';
+$url = 'https://api-backend.laravel.cloud/api/user/users/all';
 $response = $client-&gt;get(
     $url,
     [
@@ -813,7 +813,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/user/users/all'
+url = 'https://api-backend.laravel.cloud/api/user/users/all'
 headers = {
   'Authorization': 'Bearer {YOUR_TOKEN}',
   'Content-Type': 'application/json',
@@ -827,7 +827,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-user-users-all">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -839,7 +839,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;The route api/user/users/all could not be found.&quot;
 }</code>
  </pre>
     </span>
@@ -942,7 +942,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/user/logout" \
+    "https://api-backend.laravel.cloud/api/user/logout" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -950,7 +950,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user/logout"
+    "https://api-backend.laravel.cloud/api/user/logout"
 );
 
 const headers = {
@@ -967,7 +967,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/user/logout';
+$url = 'https://api-backend.laravel.cloud/api/user/logout';
 $response = $client-&gt;post(
     $url,
     [
@@ -986,7 +986,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/user/logout'
+url = 'https://api-backend.laravel.cloud/api/user/logout'
 headers = {
   'Authorization': 'Bearer {YOUR_TOKEN}',
   'Content-Type': 'application/json',
@@ -1113,7 +1113,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/customers" \
+    --get "https://api-backend.laravel.cloud/api/customers" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1121,7 +1121,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customers"
+    "https://api-backend.laravel.cloud/api/customers"
 );
 
 const headers = {
@@ -1138,7 +1138,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/customers';
+$url = 'https://api-backend.laravel.cloud/api/customers';
 $response = $client-&gt;get(
     $url,
     [
@@ -1157,7 +1157,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/customers'
+url = 'https://api-backend.laravel.cloud/api/customers'
 headers = {
   'Authorization': 'Bearer {YOUR_TOKEN}',
   'Content-Type': 'application/json',
@@ -1171,7 +1171,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-customers">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1183,7 +1183,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
+    &quot;message&quot;: &quot;The route api/customers could not be found.&quot;
 }</code>
  </pre>
     </span>
@@ -1296,7 +1296,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/customers" \
+    "https://api-backend.laravel.cloud/api/customers" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1313,7 +1313,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customers"
+    "https://api-backend.laravel.cloud/api/customers"
 );
 
 const headers = {
@@ -1340,7 +1340,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/customers';
+$url = 'https://api-backend.laravel.cloud/api/customers';
 $response = $client-&gt;post(
     $url,
     [
@@ -1367,7 +1367,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/customers'
+url = 'https://api-backend.laravel.cloud/api/customers'
 payload = {
     "first_name": "Juan",
     "last_name": "Pérez",
@@ -1581,7 +1581,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/customers/1" \
+    --get "https://api-backend.laravel.cloud/api/customers/1" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -1589,7 +1589,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customers/1"
+    "https://api-backend.laravel.cloud/api/customers/1"
 );
 
 const headers = {
@@ -1606,7 +1606,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/customers/1';
+$url = 'https://api-backend.laravel.cloud/api/customers/1';
 $response = $client-&gt;get(
     $url,
     [
@@ -1625,7 +1625,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/customers/1'
+url = 'https://api-backend.laravel.cloud/api/customers/1'
 headers = {
   'Authorization': 'Bearer {YOUR_TOKEN}',
   'Content-Type': 'application/json',
@@ -1639,7 +1639,16 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-customers--id-">
             <blockquote>
-            <p>Example response (401):</p>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Cliente no encontrado&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1651,16 +1660,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Unauthenticated.&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Cliente no encontrado&quot;
+    &quot;message&quot;: &quot;The route api/customers/1 could not be found.&quot;
 }</code>
  </pre>
     </span>
@@ -1786,7 +1786,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/customers/1" \
+    "https://api-backend.laravel.cloud/api/customers/1" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
@@ -1803,7 +1803,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customers/1"
+    "https://api-backend.laravel.cloud/api/customers/1"
 );
 
 const headers = {
@@ -1830,7 +1830,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/customers/1';
+$url = 'https://api-backend.laravel.cloud/api/customers/1';
 $response = $client-&gt;put(
     $url,
     [
@@ -1857,7 +1857,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/customers/1'
+url = 'https://api-backend.laravel.cloud/api/customers/1'
 payload = {
     "first_name": "Juan",
     "last_name": "Pérez",
@@ -2088,7 +2088,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/customers/1" \
+    "https://api-backend.laravel.cloud/api/customers/1" \
     --header "Authorization: Bearer {YOUR_TOKEN}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -2096,7 +2096,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/customers/1"
+    "https://api-backend.laravel.cloud/api/customers/1"
 );
 
 const headers = {
@@ -2113,7 +2113,7 @@ fetch(url, {
 
 <div class="php-example">
     <pre><code class="language-php">$client = new \GuzzleHttp\Client();
-$url = 'http://localhost/api/customers/1';
+$url = 'https://api-backend.laravel.cloud/api/customers/1';
 $response = $client-&gt;delete(
     $url,
     [
@@ -2132,7 +2132,7 @@ print_r(json_decode((string) $body));</code></pre></div>
     <pre><code class="language-python">import requests
 import json
 
-url = 'http://localhost/api/customers/1'
+url = 'https://api-backend.laravel.cloud/api/customers/1'
 headers = {
   'Authorization': 'Bearer {YOUR_TOKEN}',
   'Content-Type': 'application/json',

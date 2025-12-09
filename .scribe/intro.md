@@ -3,7 +3,7 @@
 API RESTful para gestión de usuarios y clientes. Incluye autenticación mediante tokens Bearer (Laravel Sanctum) y operaciones CRUD completas.
 
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>https://api-backend.laravel.cloud/</code>
 </aside>
 
     ## Autenticación

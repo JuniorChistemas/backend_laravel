@@ -174,8 +174,11 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: |-
+          {
+              "message": "The route api/user/get-user could not be found."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -229,8 +232,11 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: |-
+          {
+              "message": "The route api/user/users/all could not be found."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json

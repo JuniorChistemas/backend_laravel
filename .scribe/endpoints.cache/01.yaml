@@ -32,8 +32,11 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: |-
+          {
+              "message": "The route api/customers could not be found."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -217,19 +220,22 @@ endpoints:
     responses:
       -
         custom: []
-        status: 401
-        content: '{"message":"Unauthenticated."}'
+        status: 404
+        content: '{"message": "Cliente no encontrado"}'
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 404
+        content: |-
+          {
+              "message": "The route api/customers/1 could not be found."
+          }
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
-      -
-        custom: []
-        status: 404
-        content: '{"message": "Cliente no encontrado"}'
-        headers: []
-        description: ''
     responseFields:
       data:
         custom: []
