@@ -28,7 +28,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "https://api-backend.laravel.cloud/";
+        var tryItOutBaseUrl = "https://api-backend.laravel.cloud";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -131,7 +131,7 @@
         <h1 id="introduction">Introduction</h1>
 <p>API RESTful para gestión de usuarios y clientes. Incluye autenticación mediante tokens Bearer (Laravel Sanctum) y operaciones CRUD completas.</p>
 <aside>
-    <strong>Base URL</strong>: <code>https://api-backend.laravel.cloud/</code>
+    <strong>Base URL</strong>: <code>https://api-backend.laravel.cloud</code>
 </aside>
 <pre><code>## Autenticación
 
@@ -644,7 +644,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-user-get-user">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -656,7 +656,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/user/get-user could not be found.&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -827,7 +827,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-user-users-all">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -839,7 +839,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/user/users/all could not be found.&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -1171,7 +1171,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-customers">
             <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1183,7 +1183,7 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/customers could not be found.&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
 }</code>
  </pre>
     </span>
@@ -1639,16 +1639,7 @@ response.json()</code></pre></div>
 
 <span id="example-responses-GETapi-customers--id-">
             <blockquote>
-            <p>Example response (404):</p>
-        </blockquote>
-                <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;Cliente no encontrado&quot;
-}</code>
- </pre>
-            <blockquote>
-            <p>Example response (404):</p>
+            <p>Example response (401):</p>
         </blockquote>
                 <details class="annotation">
             <summary style="cursor: pointer;">
@@ -1660,7 +1651,16 @@ access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
-    &quot;message&quot;: &quot;The route api/customers/1 could not be found.&quot;
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (404):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Cliente no encontrado&quot;
 }</code>
  </pre>
     </span>
