@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EnpointContactController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ Route::prefix('/user')->middleware('auth:sanctum', 'throttle:api')->group(functi
 Route::resource('/customers', CustomerController::class)->except(['create', 'edit'])->middleware('auth:sanctum', 'throttle:api');
 
 
+// Ruta para el endpoint de contacto
+Route::post('/contact', EnpointContactController::class)->name('contact')->middleware('throttle:api');
