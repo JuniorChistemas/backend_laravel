@@ -18,7 +18,7 @@ class EnpointContactController extends Controller
         
         $googleURL = $urlVerify.'?key='.$keyApp;
         $googleResponse = Http::post($googleURL,
-            $request->input('recapcha_request')
+            $request->input('recaptcha_request')
         );
 
         $resultRecapcha = $googleResponse->json();
