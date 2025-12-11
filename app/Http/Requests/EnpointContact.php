@@ -25,7 +25,7 @@ class EnpointContact extends FormRequest
             'name' => 'required|string|max:150',
             'email' => 'required|email|max:150',
             'message' => 'required|string',
-            'recapcha_request' => 'required|array',
+            'recaptcha_request' => 'required|array',
         ];
     }
 
@@ -41,8 +41,8 @@ class EnpointContact extends FormRequest
             'email.max' => 'El campo correo electrónico no debe exceder los 150 caracteres.',
             'message.required' => 'El campo mensaje es obligatorio.',
             'message.string' => 'El campo mensaje debe ser una cadena de texto.',
-            'recapcha_request.required' => 'El campo reCAPTCHA es obligatorio.',
-            'recapcha_request.array' => 'El campo reCAPTCHA debe ser un arreglo.',
+            'recaptcha_request.required' => 'El campo reCAPTCHA es obligatorio.',
+            'recaptcha_request.array' => 'El campo reCAPTCHA debe ser un arreglo.',
         ];
     }
 
