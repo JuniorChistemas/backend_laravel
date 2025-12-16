@@ -34,7 +34,7 @@ class EnpointContactController extends Controller
         if ($resultRecapcha['riskAnalysis']['score'] < 0.5) {
             return response()->json([
                 'status' => false,
-                'message' => 'Actividad sospechosa detectada. Por favor, inténtelo de nuevo.',
+                'message' => 'Nuestro servidor se esta encendiendo o se detecto actividad sospechosa. Intentelo nuevamente',
             ], 422);
         }
 
