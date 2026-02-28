@@ -23,7 +23,19 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return response()->json($this->customer_service->getAll());
+        $customers = $this->customer_service->getAll();
+
+        return response()->json([
+            'data' => $customers->items(),
+            'meta' => [
+                'current_page' => $customers->currentPage(),
+                'last_page' => $customers->lastPage(),
+                'per_page' => $customers->perPage(),
+                'total' => $customers->total(),
+                'from' => $customers->firstItem(),
+                'to' => $customers->lastItem(),
+            ],
+        ]);
     }
 
     /**

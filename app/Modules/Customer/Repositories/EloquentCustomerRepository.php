@@ -6,12 +6,13 @@ use App\Models\Customer;
 use App\Modules\Customer\Contracts\CustomerRepositoryInterface;
 use App\Modules\Customer\Dtos\CustomerCreateDTO;
 use App\Modules\Customer\Dtos\CustomerUpdateDTO;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class EloquentCustomerRepository implements CustomerRepositoryInterface{
-  public function getAll(): array
+  public function getAll(): LengthAwarePaginator 
   {
-    // limit 30
-    return Customer::query()->orderBy('id', 'DESC')->limit(30)->get()->all();
+    // paginate
+    return Customer::paginate(5);
   }
   public function find(int $id)
   {

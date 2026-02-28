@@ -1,20 +1,27 @@
 <?php
 namespace App\Modules\Customer\Services;
 
+use App\Models\Customer;
 use App\Modules\Customer\Contracts\CustomerRepositoryInterface;
 use App\Modules\Customer\Contracts\CustomerServiceInterface;
 use App\Modules\Customer\Converters\CustomerConverter;
 use App\Modules\Customer\Dtos\CustomerCreateDTO;
 use App\Modules\Customer\Dtos\CustomerDTO;
 use App\Modules\Customer\Dtos\CustomerUpdateDTO;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Log;
 
 class CustomerService implements CustomerServiceInterface{
   public function __construct(private CustomerRepositoryInterface $repository){}
 
-  public function getAll(): array
+  public function getAll(): LengthAwarePaginator
   {
-    return CustomerConverter::toCollectionDTO($this->repository->getAll());
+    $customers = $this->repository->getAll();
+    $customers->setCollection(
+      $customers->getCollection()->map(fn(Customer $customer) => CustomerConverter::toDTO($customer))
+    );
+
+    return $customers;
   } 
   public function getById(int $id): CustomerDTO
   {

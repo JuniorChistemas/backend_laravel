@@ -4,6 +4,7 @@ namespace App\Modules\Customer\Converters;
 
 use App\Models\Customer;
 use App\Modules\Customer\Dtos\CustomerDTO;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class CustomerConverter{
 
@@ -24,12 +25,16 @@ class CustomerConverter{
 
 
   /**
-   * @param Customer[] $customers
-   * @return CustomerDTO[]
+   * @param LengthAwarePaginator $customers
+   * @return LengthAwarePaginator
    */
 
-  public static function toCollectionDTO(array $customers): array{
-    return array_map(fn(Customer $customer) => self::toDTO($customer), $customers);
+  public static function toCollectionDTO(LengthAwarePaginator $customers): LengthAwarePaginator{
+    $customers->setCollection(
+      $customers->getCollection()->map(fn(Customer $customer) => self::toDTO($customer))
+    );
+
+    return $customers;
   }
 }
 
