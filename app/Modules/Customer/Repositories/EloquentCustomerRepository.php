@@ -12,7 +12,7 @@ class EloquentCustomerRepository implements CustomerRepositoryInterface{
   public function getAll(): LengthAwarePaginator 
   {
     // paginate
-    return Customer::paginate(5);
+    return Customer::paginate(30);
   }
   public function find(int $id)
   {
